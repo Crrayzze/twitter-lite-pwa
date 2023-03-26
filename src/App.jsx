@@ -1,10 +1,11 @@
 import './App.css';
 import React from 'react';
+import { Router } from './pages/router';
 
 function App() {
   return (
     <div>
-      <h1>Empty React App</h1>
+      <Router />
     </div>
   );
 }
