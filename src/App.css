@@ -1,0 +1,10 @@
+* {
+  font-family: 'Inter', sans-serif;
+  --webkit-font-smoothing: antialiased;
+  transition: 0.3s;
+  margin: 0;
+}
+
+.app-base {
+  
+}
