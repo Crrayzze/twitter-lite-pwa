@@ -3,8 +3,21 @@
   --webkit-font-smoothing: antialiased;
   transition: 0.3s;
   margin: 0;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+:root {
+  --primary: rgb(21 32 43);
+  --secondary: rgb(29 155 240);
+  --overlay-background: rgb(30 39 50);
+  --gray: rgb(55 68 77);
+  --white: rgb(247 249 249);
+  --blue-hover: rgb(29 155 240 0.1);
 }
 
 .app-base {
-  
+  display: flex;
+  flex-direction: row;
+
 }
