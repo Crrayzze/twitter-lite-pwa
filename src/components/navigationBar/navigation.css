@@ -13,19 +13,45 @@
   justify-content: flex-start;
   position: fixed;
   align-items: flex-start;
-  padding-right: 60px;
+  padding-right: 75px;
   border-right: 1px solid var(--gray);
   border-width: thin;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   height: 100vh;
 }
 
 .navigation-element {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 30px;
+  align-items: center;
+}
+
+.navigation-first-element {
   padding-top: 20px;
 }
 
 .navigation-bottom {
   margin-top: auto;
-  padding-bottom: 20px;
-  font-size: 40px
+  padding-bottom: 30px;
+  font-size: 40px;
+  gap: 10px;
+}
+
+.navigation-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.navigation-username {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--gray-light);
+}
+
+.navigation-element:hover {
+  background-color: var(--blue-hover);
+  border-radius: 10px;
+  cursor: pointer;
 }

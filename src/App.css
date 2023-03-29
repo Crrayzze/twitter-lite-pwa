@@ -12,8 +12,9 @@
   --secondary: rgb(29 155 240);
   --overlay-background: rgb(30 39 50);
   --gray: rgb(55 68 77);
+  --gray-light: rgb(102, 120, 133);
   --white: rgb(247 249 249);
-  --blue-hover: rgb(29 155 240 0.1);
+  --blue-hover: rgb(38 51 64)
 }
 
 .app-base {
