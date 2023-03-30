@@ -72,8 +72,6 @@
 @media screen and (max-width: 1000px) {
   .navigation {
     padding-right: 20px;
-    /* align-items: center; */
-    /* width: 100%; */
   }
 
   .menu-container {
@@ -81,8 +79,6 @@
   }
 
   .navigation-first-element {
-    /* padding-right: 20px;
-    padding-left: 10px; */
     padding-top: 10px;
     padding-bottom: 10px;
   }

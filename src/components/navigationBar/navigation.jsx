@@ -32,7 +32,7 @@ export const NavigationBar = () => {
             </div>
           </div>
         <div className="navigation-bottom navigation-element">
-            <CgProfile color="var(--white)" size={24} style={{ background: 'transparent' }}/>
+            <CgProfile color="var(--white)" size={30} style={{ background: 'transparent' }}/>
             <div className="navigation-label">
               <p className="navigation-name">Name</p>
               <p className="navigation-username">@username</p>
