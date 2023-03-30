@@ -13,45 +13,53 @@
   justify-content: flex-start;
   position: fixed;
   align-items: flex-start;
-  padding-right: 75px;
+  padding-right: 40px;
   border-right: 1px solid var(--gray);
   border-width: thin;
   font-size: 1.3rem;
   height: 100vh;
+  gap: 10px;
 }
 
 .navigation-element {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding-top: 30px;
   align-items: center;
+  padding: 10px;
+  padding-right: 30px;
+  padding-left: 15px;
 }
 
 .navigation-first-element {
-  padding-top: 20px;
+  margin-top: 10px;
+  padding: 15px;
 }
 
 .navigation-bottom {
   margin-top: auto;
-  padding-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 40px;
   gap: 10px;
+  background-color: transparent;
+  
 }
 
 .navigation-name {
   font-size: 0.9rem;
   font-weight: 600;
+  background-color: transparent;
 }
 
 .navigation-username {
   font-size: 0.9rem;
   font-weight: 300;
   color: var(--gray-light);
+  background-color: transparent;
 }
 
 .navigation-element:hover {
   background-color: var(--blue-hover);
-  border-radius: 10px;
+  border-radius: 50px;
   cursor: pointer;
 }
