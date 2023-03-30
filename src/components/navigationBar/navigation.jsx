@@ -15,22 +15,28 @@ export const NavigationBar = () => {
           </div>
           <div className="navigation-element">
             <RiHome7Line color="var(--white)" size={24} style={{ background: 'transparent' }}/>
-            Home
+            <div className="navigation-label">
+              Home
+            </div>
           </div>
           <div className="navigation-element">
             <IoMdNotificationsOutline color="var(--white)" size={24} style={{ background: 'transparent' }}/>
-            Notifications
+            <div className="navigation-label">
+              Notifications
+            </div>
           </div>
           <div className="navigation-element">
             <BsPerson color="var(--white)" size={24} style={{ background: 'transparent' }}/>
-            Profile
+            <div className="navigation-label">
+              Profile
+            </div>
           </div>
         <div className="navigation-bottom navigation-element">
-            <CgProfile color="var(--white)" style={{ background: 'transparent' }}/>
-            <div style={{ background: 'transparent'}}>
+            <CgProfile color="var(--white)" size={24} style={{ background: 'transparent' }}/>
+            <div className="navigation-label">
               <p className="navigation-name">Name</p>
               <p className="navigation-username">@username</p>
-            </div>
+            </div> 
         </div>
       </div>
     </div>

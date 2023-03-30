@@ -31,6 +31,10 @@
   padding-left: 15px;
 }
 
+.navigation-label {
+  background-color: transparent;
+}
+
 .navigation-first-element {
   margin-top: 10px;
   padding: 15px;
@@ -62,4 +66,57 @@
   background-color: var(--blue-hover);
   border-radius: 50px;
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .navigation {
+    padding-right: 20px;
+    /* align-items: center; */
+    /* width: 100%; */
+  }
+
+  .menu-container {
+    min-width: 20%;
+  }
+
+  .navigation-first-element {
+    /* padding-right: 20px;
+    padding-left: 10px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .navigation-element {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .navigation-label {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navigation {
+    align-items: center;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .menu-container {
+    min-width: 15%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navigation {
+    align-items: center;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  .menu-container {
+    min-width: 15%;
+  }
 }
