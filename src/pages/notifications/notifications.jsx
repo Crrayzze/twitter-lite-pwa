@@ -1,9 +1,10 @@
 import React from 'react';
+import { TopBar } from '../../components/topBar/topBar';
 
 export const Notifications = () => {
   return (
     <div>
-      <h1>Notifications</h1>
+      <TopBar name="Notifications" />
     </div>
   );
 }
