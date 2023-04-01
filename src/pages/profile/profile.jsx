@@ -1,9 +1,10 @@
 import React from 'react';
+import { TopBar } from '../../components/topBar/topBar';
 
 export const Profile = () => {
   return (
     <div>
-      <h1>Profile</h1>
+      <TopBar name="Profile" />
     </div>
   );
 }
