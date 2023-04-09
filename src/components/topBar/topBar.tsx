@@ -1,10 +1,14 @@
 import React from "react";
 import "./topBar.css";
 
-export const TopBar = (prop) => {
+interface TopBarProps {
+  name: string;
+}
+
+export const TopBar: React.FC<TopBarProps> = ({ name }) => {
   return (
     <div className="topBar-container">
-      {prop.name}
+      {name}
     </div>
   )
 };
