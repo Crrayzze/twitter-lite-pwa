@@ -13,6 +13,28 @@ export const Home: React.FC = () => {
         <Tweet {...tweetPropsSample} />
         <Tweet {...tweetPropsSample} />
         <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
+        <Tweet {...tweetPropsSample} />
       </div>
     </div>
   );
