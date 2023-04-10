@@ -1,0 +1,73 @@
+.tweet-container {
+  display: flex;
+  border-top: 0.5px solid var(--gray);
+  border-bottom: 0.5px solid var(--gray);
+  font-size: 14px;
+}
+
+.tweet-profile-picture {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.tweet-top {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding-top: 12px
+}
+
+.tweet-icon {
+  width: 14px;
+  height: 14px;
+  fill: var(--gray-light);
+  cursor: pointer;
+}
+
+.tweet-icon:hover {
+  fill: red;
+}
+
+.tweet-author {
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.tweet-author:hover {
+  text-decoration: underline;
+}
+
+.tweet-text {
+  line-height: 1.1;
+}
+
+.tweet-info {
+  font-size: 14px;
+  color: var(--gray-light);
+}
+
+.tweet-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tweet-bottom {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+
+.tweet-button-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+}
