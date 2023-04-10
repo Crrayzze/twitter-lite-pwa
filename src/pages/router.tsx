@@ -5,7 +5,7 @@ import { Profile } from './profile/profile';
 import React from 'react';
 import { PrivateRoute } from '../hoc/privateRoute';
 
-export const Router = () => {
+export const Router: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={

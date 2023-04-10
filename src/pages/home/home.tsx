@@ -3,7 +3,7 @@ import { Sample } from "../../components/sample/sample";
 import { TopBar } from "../../components/topBar/topBar";
 import "./home.css";
 
-export const Home = () => {
+export const Home: React.FC = () => {
   return (
     <div>
       <TopBar name="Home" />

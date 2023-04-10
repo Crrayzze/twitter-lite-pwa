@@ -5,14 +5,14 @@ import { CgProfile } from "react-icons/cg";
 import { RiHome7Line } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { BsPerson } from "react-icons/bs";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Location, NavigateFunction } from "react-router-dom";
 
-export const NavigationBar = () => {
+export const NavigationBar: React.FC = () => {
 
-  const location = useLocation();
-  const navigate = useNavigate();
+  const location: Location = useLocation();
+  const navigate: NavigateFunction = useNavigate();
 
-  const handleNavigationClick = (path) => {
+  const handleNavigationClick = (path: string) => {
     if (location.pathname !== path) {
       navigate(path);
     }

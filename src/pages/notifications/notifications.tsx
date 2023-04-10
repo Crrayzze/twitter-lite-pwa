@@ -1,10 +1,10 @@
 import React from 'react';
 import { TopBar } from '../../components/topBar/topBar';
 
-export const Profile = () => {
+export const Notifications: React.FC = () => {
   return (
     <div>
-      <TopBar name="Profile" />
+      <TopBar name="Notifications" />
     </div>
   );
 }
