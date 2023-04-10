@@ -3,7 +3,7 @@ import { TopBar } from '../../components/topBar/topBar';
 
 export const Notifications: React.FC = () => {
   return (
-    <div>
+    <div className='page-wrapper'>
       <TopBar name="Notifications" />
     </div>
   );
