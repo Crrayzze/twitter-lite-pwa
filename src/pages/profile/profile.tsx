@@ -3,7 +3,7 @@ import { TopBar } from '../../components/topBar/topBar';
 
 export const Profile: React.FC = () => {
   return (
-    <div>
+    <div className='page-wrapper'>
       <TopBar name="Profile" />
     </div>
   );
