@@ -20,5 +20,11 @@
 .app-base {
   display: flex;
   flex-direction: row;
+}
 
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  border-right: 1px solid var(--gray);
 }

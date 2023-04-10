@@ -1,6 +1,6 @@
 .topBar-container {
   position: fixed;
-  width: 100%;
+  width: 580px;
   height: 60px;
   border-bottom: 1px solid var(--gray);
   background-color: rgb(21 32 43 / 75%);
