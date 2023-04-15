@@ -1,5 +1,4 @@
 import React from "react";
-import { Sample } from "../../components/sample/sample";
 import { TopBar } from "../../components/topBar/topBar";
 import { Tweet } from "../../components/tweet/tweet";
 import { tweetPropsSample } from "../../interfaces/tweetProps";

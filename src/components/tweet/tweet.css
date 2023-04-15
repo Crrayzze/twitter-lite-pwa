@@ -71,3 +71,8 @@
   gap: 5px;
   align-items: center;
 }
+
+.tweet-liked {
+  fill: red;
+  
+}
