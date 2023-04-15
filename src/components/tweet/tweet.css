@@ -25,6 +25,8 @@
   height: 14px;
   fill: var(--gray-light);
   cursor: pointer;
+  stroke: var(--gray-light);
+  stroke-width: 20;
 }
 
 .tweet-icon:hover {
@@ -74,5 +76,5 @@
 
 .tweet-liked {
   fill: red;
-  
+  stroke: none;
 }
