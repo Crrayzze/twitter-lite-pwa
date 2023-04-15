@@ -8,8 +8,7 @@ export const Notifications: React.FC = () => {
     <div className='page-wrapper'>
       <TopBar name="Notifications" />
       <div className='notification'>
-        <Notification />
-
+        <Notification name='John Doe' tweetId={8}/>
       </div>
     </div>
   );
