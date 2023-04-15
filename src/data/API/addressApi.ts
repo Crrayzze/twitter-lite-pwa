@@ -2,9 +2,10 @@ import BaseAPI from "./baseApi";
 import AddressEntity from "./entities/address.entity";
 
 export default class AddressAPI extends BaseAPI {
+
   constructor() {
-    const apiKey: string = process.env.ADDRESS_API_KEY || '';
-    const apiHost: string = process.env.API_HOST || '';
+    const apiKey: string = process.env.REACT_APP_ADDRESS_API_KEY || '';
+    const apiHost: string = process.env.REACT_APP_API_HOST || '';
 
     super('https://address-from-to-latitude-longitude.p.rapidapi.com/', 
       {
