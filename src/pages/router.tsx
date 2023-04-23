@@ -5,10 +5,13 @@ import { Profile } from './profile/profile';
 import React from 'react';
 import { PrivateRoute } from '../hoc/privateRoute';
 import { NotifiedTweet } from './notifiedTweet/notifiedTweet';
+import { Register } from './register/register';
 
 export const Router: React.FC = () => {
   return (
     <Routes>
+      <Route path="/register" element={
+          <Register />} />
       <Route path="/" element={
         <PrivateRoute>
           <Home />
