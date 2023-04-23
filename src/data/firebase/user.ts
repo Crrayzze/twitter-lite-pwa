@@ -20,4 +20,16 @@ export const UserFirebase = {
     return null;
   },
 
+  getFromUid: async function (uid: string): Promise<FbUser| null> {
+    try {
+      const docRef = doc(db, usersCollectionName, uid);
+      const document = await getDoc(docRef);
+
+      return new FbUser({ uid: document.id, ...document.data()});
+    } catch (e) {
+      console.error("Error finding user by uid: ", e);
+    }
+    return null;
+  }
+
 };
