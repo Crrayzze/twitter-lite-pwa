@@ -6,10 +6,13 @@ import React from 'react';
 import { PrivateRoute } from '../hoc/privateRoute';
 import { NotifiedTweet } from './notifiedTweet/notifiedTweet';
 import { Register } from './register/register';
+import { Login } from './login/login';
 
 export const Router: React.FC = () => {
   return (
     <Routes>
+      <Route path="/login" element={
+          <Login />} />
       <Route path="/register" element={
           <Register />} />
       <Route path="/" element={
