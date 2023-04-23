@@ -1,9 +1,21 @@
 import { auth } from '../../firebase';
-import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { UserFirebase } from './user';
 import { FbUser } from './models/user';
 
 export const AuthFirebase = {
+
+  login: async function (email: string, password: string): Promise<any | null> {
+    try {
+      const credential = await signInWithEmailAndPassword(auth, email, password);
+      const user = UserFirebase.getFromUid(credential.user.uid);
+
+      return user;
+    } catch (e: any) {
+      console.error(e.code, e.message);
+    }
+    return null;
+  },
 
   register: async function(username: string, email: string, password: string): Promise<FbUser | null> {
     try {
