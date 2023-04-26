@@ -1,0 +1,20 @@
+.tweet-container {
+  display: flex;
+  border-top: 0.5px solid var(--gray);
+  border-bottom: 0.5px solid var(--gray);
+  font-size: 14px;
+}
+
+.tweet-profile-picture {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.tweet-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
