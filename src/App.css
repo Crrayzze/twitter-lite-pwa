@@ -10,6 +10,7 @@
 :root {
   --primary: rgb(21 32 43);
   --secondary: rgb(29 155 240);
+  --secondary-hover: rgb(21, 116, 180);
   --overlay-background: rgb(30 39 50);
   --gray: rgb(55 68 77);
   --gray-light: rgb(102, 120, 133);
