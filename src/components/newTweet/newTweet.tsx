@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './newTweet.css';
+import AddressAPI from "../../data/API/addressApi"
 
 export const NewTweet: React.FC = () => {
 
   const [text, setText] = useState<string>('');
   const [coordinates, setCoordinates] = useState({latitude: 0, longitude: 0});
+  const addressApi: AddressAPI = new AddressAPI()
 
   const getGeolocation =  () => {
     if (navigator.geolocation) {
@@ -21,10 +23,13 @@ export const NewTweet: React.FC = () => {
     setText(event.target.value);
   }
 
-  const handleSubmit =  () => {
+  const handleSubmit = async () => {
     if (text.length > 0) {
+      let pos: any = coordinates
+      if (coordinates.latitude !== 0 && coordinates.longitude !== 0)
+        pos = await addressApi.getAddressByCoordinates(coordinates.latitude, coordinates.longitude)
       console.log('Tweet: ', text);
-      console.log("coordinates: ", coordinates);
+      console.log("coordinates: ", pos.city);
       // TODO: Use call to send the tweet
       setText('')
     }
