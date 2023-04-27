@@ -1,0 +1,29 @@
+.offline-wrapper {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  background-color: gray;
+  border-bottom: 1px solid var(--gray);
+  color: white;
+  width: 100%;
+  z-index: 99;
+  height: 8px;
+}
+
+.offline-icon {
+  width: 14px;
+  height: 14px;
+  color: white;
+  stroke-width: 20;
+  background-color: transparent;
+}
+
+.offline-text {
+  font-size: 10px;
+  font-weight: 600;
+  background-color: transparent;
+}
