@@ -3,6 +3,7 @@
   border-top: 0.5px solid var(--gray);
   border-bottom: 0.5px solid var(--gray);
   font-size: 14px;
+  width: 600px;
 }
 
 .tweet-profile-picture {
@@ -17,4 +18,36 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 10px;
+  width: 85%;
+}
+
+.new-tweet-textarea {
+  border: none;
+  resize: none;
+  font-size: 18px;
+}
+
+.new-tweet-textarea:focus {
+  outline: none;
+}
+
+.new-tweet-button {
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100px;
+  margin-left: auto;
+  margin-right: 0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.new-tweet-button:hover {
+  background-color: var(--secondary-hover);
 }
