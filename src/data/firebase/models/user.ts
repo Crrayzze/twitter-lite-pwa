@@ -10,7 +10,8 @@ export interface FbUserModel {
   banner: string;
 
   // Authorizations
-  allow_notifications: boolean;
+  allow_notification: boolean;
+  allow_localisation: boolean;
 }
 
 export class FbUser implements FbUserModel {
@@ -25,7 +26,8 @@ export class FbUser implements FbUserModel {
   public banner: string;
 
   // Authorizations
-  public allow_notifications: boolean;
+  public allow_localisation: boolean;
+  public allow_notification: boolean;
 
   constructor(user: any) {
     this.uid = user.uid || null;
@@ -36,7 +38,8 @@ export class FbUser implements FbUserModel {
     this.avatar = user.avatar || '';
     this.banner = user.banner || '';
 
-    this.allow_notifications = user.allow_notifications || false;
+    this.allow_localisation = user.allow_localisation || false;
+    this.allow_notification = user.allow_notification || false;
   }
 
   public toJson(): string {
@@ -48,7 +51,8 @@ export class FbUser implements FbUserModel {
       avatar: this.avatar,
       banner: this.banner,
 
-      allow_notifications: this.allow_notifications
+      allow_localisation: this.allow_localisation,
+      allow_notification: this.allow_notification,
     });
   }
 
@@ -61,7 +65,8 @@ export class FbUser implements FbUserModel {
       avatar: this.avatar,
       banner: this.banner,
 
-      allow_notifications: this.allow_notifications
+      allow_localisation: this.allow_localisation,
+      allow_notification: this.allow_notification
     };
   }
 }
