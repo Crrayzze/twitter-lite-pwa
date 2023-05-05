@@ -1,11 +1,12 @@
 import React from "react";
 import "./navigation.css";
-import { IoLogoTwitter } from "react-icons/io";
+import { IoIosLogOut, IoLogoTwitter } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { RiHome7Line } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { BsPerson } from "react-icons/bs";
 import { useLocation, useNavigate, Location, NavigateFunction } from "react-router-dom";
+import { AuthFirebase } from "../../data/firebase/auth";
 
 export const NavigationBar: React.FC = () => {
 
@@ -16,6 +17,10 @@ export const NavigationBar: React.FC = () => {
     if (location.pathname !== path) {
       navigate(path);
     }
+  }
+
+  const logoutUser = (): void => {
+    const isLogout = AuthFirebase.logout();
   }
 
   return (
@@ -42,12 +47,18 @@ export const NavigationBar: React.FC = () => {
               Profile
             </div>
           </div>
+          <div className="navigation-element" onClick={() => logoutUser()}>
+            <IoIosLogOut color="var(--white)" size={24} style={{ background: 'transparent' }}/>
+            <div className="navigation-label">
+              Logout
+            </div>
+          </div>
         <div className="navigation-bottom navigation-element">
             <CgProfile color="var(--white)" size={30} style={{ background: 'transparent' }}/>
             <div className="navigation-label">
               <p className="navigation-name">Name</p>
               <p className="navigation-username">@username</p>
-            </div> 
+            </div>
         </div>
       </div>
     </div>
