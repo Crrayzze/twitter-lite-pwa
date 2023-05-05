@@ -12,6 +12,8 @@ export const Profile: React.FC = () => {
 
   const [user, setUser] = useState<FbUser | null>(null);
 
+  const [isTweetTab, setIsTweetTab] = useState<boolean>(true);
+
   useEffect(() => {
     const currentUserJson = localStorage.getItem('currentUser');
 
@@ -57,7 +59,22 @@ export const Profile: React.FC = () => {
         <div className='profile-tab'>Like</div>
       </div>
       <div className='profile-tweet-wrapper'>
+        {
+          isTweetTab ? tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />) : <div>Like</div>
+        }
+        {/* {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
         {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
+        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
+        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
+        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
+        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
+        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
+        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
+        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
+        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
+        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
+        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)} */}
+
       </div>
     </div>
   );
