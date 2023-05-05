@@ -128,12 +128,12 @@ export const TweetFirebase = {
     return null;
   },
 
-  post: async function (text: string) {
+  post: async function (text: string, localisation: string) {
     const currentUserJson = localStorage.getItem('currentUser');
     const currentUser = new FbUser(JSON.parse(currentUserJson!));
 
     try {
-      const tweet = new FbTweet({ text });
+      const tweet = new FbTweet({ text, localisation });
       const docRef = await addDoc(collection(db, collectionName), tweet.toObject());
 
       tweet.uid = docRef.id; // get uid from creation
