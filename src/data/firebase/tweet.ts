@@ -110,16 +110,25 @@ export const TweetFirebase = {
         const q = query(ref,
           where("likes", "array-contains", user.uid),
           orderBy("created_at", "desc"),
-
         );
         // get snapshot of the matching tweets docs
         const querySnapshot = await getDocs(q);
+
+        let usersUid: string[] = [];
 
         // fill tweets array with tweet document data and id
         querySnapshot.forEach((document) => {
           const tweet: any = new FbTweet({ uid: document.id, ...document.data()});
           tweets.push(tweet);
+          usersUid.push(tweet.created_by);
         });
+
+        const users = await UserFirebase.getAllFromUidList(usersUid);
+
+        users.forEach((user, index) => {
+          tweets[index].created_by_data = user;
+        });
+
         return tweets;
       } catch (e) {
         console.error("Error retrieving current user tweets: ", e);
