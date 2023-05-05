@@ -1,20 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./navigation.css";
-import { IoLogoTwitter } from "react-icons/io";
+import { IoIosLogOut, IoLogoTwitter } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { RiHome7Line } from "react-icons/ri";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { BsPerson } from "react-icons/bs";
 import { useLocation, useNavigate, Location, NavigateFunction } from "react-router-dom";
+import { AuthFirebase } from "../../data/firebase/auth";
+import { FbUser } from "../../data/firebase/models/user";
 
 export const NavigationBar: React.FC = () => {
 
   const location: Location = useLocation();
   const navigate: NavigateFunction = useNavigate();
 
+  const [user, setUser] = useState<FbUser | null>(null);
+
+  useEffect(() => {
+    const currentUserJson = localStorage.getItem('currentUser');
+
+    if (currentUserJson) {
+      const currentUser = new FbUser(JSON.parse(currentUserJson));
+
+      setUser(currentUser);
+    }
+  }, []);
+
   const handleNavigationClick = (path: string) => {
     if (location.pathname !== path) {
       navigate(path);
+    }
+  }
+
+  const logoutUser = async (): Promise<void> => {
+    const isLogout = await AuthFirebase.logout();
+
+    if (isLogout) {
+      localStorage.removeItem('currentUser');
     }
   }
 
@@ -42,12 +64,18 @@ export const NavigationBar: React.FC = () => {
               Profile
             </div>
           </div>
-        <div className="navigation-bottom navigation-element">
+          <div className="navigation-element" onClick={() => logoutUser()}>
+            <IoIosLogOut color="var(--white)" size={24} style={{ background: 'transparent' }}/>
+            <div className="navigation-label">
+              Logout
+            </div>
+          </div>
+        <div className="navigation-bottom navigation-element" onClick={() => handleNavigationClick("/profile")}>
             <CgProfile color="var(--white)" size={30} style={{ background: 'transparent' }}/>
             <div className="navigation-label">
-              <p className="navigation-name">Name</p>
-              <p className="navigation-username">@username</p>
-            </div> 
+              <p className="navigation-name">{ user?.username }</p>
+              <p className="navigation-username">@{ user?.email.split('@')[0 ] }</p>
+            </div>
         </div>
       </div>
     </div>
