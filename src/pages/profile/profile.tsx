@@ -54,12 +54,6 @@ export const Profile: React.FC = () => {
         <div className='profile-displayName'>{ user?.username }</div>
         <div className='profile-username'>@{ user?.email.split('@')[0 ] }</div>
         <div className='profile-description'>{ user?.bio }</div>
-        <div className='profile-stats'>
-          <div className='profile-stats-sub'>
-          </div>
-          <div className='profile-stats-sub'>
-          </div>
-        </div>
         </div>
       </div>
       <div className='profile-tabs'>
