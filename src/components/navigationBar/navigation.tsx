@@ -32,9 +32,12 @@ export const NavigationBar: React.FC = () => {
     }
   }
 
-  const logoutUser = (): void => {
-    localStorage.removeItem('currentUser');
-    const isLogout = AuthFirebase.logout();
+  const logoutUser = async (): Promise<void> => {
+    const isLogout = await AuthFirebase.logout();
+
+    if (isLogout) {
+      localStorage.removeItem('currentUser');
+    }
   }
 
   return (

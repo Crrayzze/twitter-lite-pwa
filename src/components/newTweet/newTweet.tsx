@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './newTweet.css';
 import AddressAPI from "../../data/API/addressApi"
+import { TweetFirebase } from '../../data/firebase/tweet';
 
-export const NewTweet: React.FC = () => {
+export const NewTweet: React.FC<{ newTweet: Function }> = (props) => {
 
   const [text, setText] = useState<string>('');
   const [coordinates, setCoordinates] = useState({latitude: 0, longitude: 0});
@@ -31,7 +32,13 @@ export const NewTweet: React.FC = () => {
       console.log('Tweet: ', text);
       console.log("coordinates: ", pos.city);
       // TODO: Use call to send the tweet
-      setText('')
+
+      const tweet = await TweetFirebase.post(text);
+
+      if (tweet) {
+        props.newTweet(tweet);
+        setText('')
+      }
     }
   }
 

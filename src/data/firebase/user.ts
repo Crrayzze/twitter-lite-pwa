@@ -30,6 +30,17 @@ export const UserFirebase = {
       console.error("Error finding user by uid: ", e);
     }
     return null;
+  },
+
+  getAllFromUidList: async function (uids: string[]): Promise<FbUser[]> {
+    try {
+      const userPromise = uids.map(uid => getDoc(doc(db, "users", uid)));
+
+      return (await Promise.all(userPromise)).map(doc => new FbUser({ uid: doc.id, ...doc.data()}));
+    } catch (e) {
+      console.error("Error finding users by uid list: ", e);
+    }
+    return [];
   }
 
 };
