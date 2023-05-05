@@ -14,7 +14,7 @@ export const Profile: React.FC = () => {
 
   const [user, setUser] = useState<FbUser | null>(null);
 
-  const [isTweetTab, setIsTweetTab] = useState<boolean>(false);
+  const [isTweetTab, setIsTweetTab] = useState<boolean>(true);
 
   useEffect(() => {
     const currentUserJson = localStorage.getItem('currentUser');
