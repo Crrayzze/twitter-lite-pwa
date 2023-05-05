@@ -8,7 +8,7 @@ export const AuthFirebase = {
   login: async function (email: string, password: string): Promise<any | null> {
     try {
       const credential = await signInWithEmailAndPassword(auth, email, password);
-      const user = UserFirebase.getFromUid(credential.user.uid);
+      const user = await UserFirebase.getFromUid(credential.user.uid);
 
       return user;
     } catch (e: any) {

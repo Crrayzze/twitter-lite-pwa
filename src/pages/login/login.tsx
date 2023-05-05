@@ -20,7 +20,7 @@ export const Login: React.FC = () => {
     const user = await AuthFirebase.login(email, password);
 
     if (user) {
-      console.log(user);
+      localStorage.setItem('currentUser', user.toJson());
       navigate('/');
     }
   }

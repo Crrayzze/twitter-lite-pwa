@@ -27,6 +27,7 @@ export const Register: React.FC = () => {
     const user = await AuthFirebase.register(username, email, password);
 
     if (user) {
+      localStorage.setItem('currentUser', user.toJson());
       navigate('/');
     }
 
