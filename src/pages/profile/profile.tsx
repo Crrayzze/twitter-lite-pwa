@@ -5,6 +5,8 @@ import './profile.css';
 import { FbTweet } from '../../data/firebase/models/tweet';
 import { TweetFirebase } from '../../data/firebase/tweet';
 import { FbUser } from '../../data/firebase/models/user';
+import { MdLocationOn } from 'react-icons/md';
+import { MdLocationOff } from 'react-icons/md';
 
 export const Profile: React.FC = () => {
 
@@ -15,6 +17,8 @@ export const Profile: React.FC = () => {
   const [user, setUser] = useState<FbUser | null>(null);
 
   const [isTweetTab, setIsTweetTab] = useState<boolean>(true);
+
+  const [isLocation, setIsLocation] = useState<boolean>(true);
 
   useEffect(() => {
     const currentUserJson = localStorage.getItem('currentUser');
@@ -54,6 +58,9 @@ export const Profile: React.FC = () => {
         <div className='profile-displayName'>{ user?.username }</div>
         <div className='profile-username'>@{ user?.email.split('@')[0 ] }</div>
         <div className='profile-description'>{ user?.bio }</div>
+        <div className='profile-location'>
+          { isLocation ? <MdLocationOn /> : <MdLocationOff /> }
+        </div>
         </div>
       </div>
       <div className='profile-tabs'>
