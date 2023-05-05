@@ -79,6 +79,7 @@
   padding: 16px 20px;
   border-bottom: 4px solid transparent;
   font-weight: 800;
+  cursor: pointer;
 }
 
 .profile-tab.active {
