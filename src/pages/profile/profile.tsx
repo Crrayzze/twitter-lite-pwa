@@ -10,9 +10,11 @@ export const Profile: React.FC = () => {
 
   const [tweets, setTweets] = useState<FbTweet[]>([]);
 
+  const [tweetsLiked, setTweetsLiked] = useState<FbTweet[]>([]);
+
   const [user, setUser] = useState<FbUser | null>(null);
 
-  const [isTweetTab, setIsTweetTab] = useState<boolean>(true);
+  const [isTweetTab, setIsTweetTab] = useState<boolean>(false);
 
   useEffect(() => {
     const currentUserJson = localStorage.getItem('currentUser');
@@ -26,12 +28,18 @@ export const Profile: React.FC = () => {
     getTweetList();
   }, []);
 
+  const handleTabChange = (isTweetTab: boolean) => {
+    setIsTweetTab(isTweetTab);
+  }
+
   async function getTweetList(): Promise<void> {
     const list = await TweetFirebase.getAllFromCurrentUser();
 
     if (list && list.length) {
       setTweets(list);
     }
+
+    // TODO: Get tweets liked by current user
   }
 
   return (
@@ -55,26 +63,13 @@ export const Profile: React.FC = () => {
         </div>
       </div>
       <div className='profile-tabs'>
-        <div className='profile-tab active'>Tweet</div>
-        <div className='profile-tab'>Like</div>
+        <div className={'profile-tab ' + (isTweetTab ? 'active' : '')} onClick={() => handleTabChange(true)}>Tweet</div>
+        <div className={'profile-tab ' + (!isTweetTab ? 'active' : '')} onClick={() => handleTabChange(false)}>Like</div>
       </div>
       <div className='profile-tweet-wrapper'>
         {
-          isTweetTab ? tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />) : <div>Like</div>
+          isTweetTab ? tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />) : tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)
         }
-        {/* {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)}
-        {tweets.map(tweet => <Tweet key={tweet.uid} tweet={tweet} />)} */}
-
       </div>
     </div>
   );
