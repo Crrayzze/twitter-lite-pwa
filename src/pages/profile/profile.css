@@ -86,3 +86,29 @@
   color: white;
   border-bottom: 4px solid rgb(29, 155, 240);
 }
+
+.profile-location-icon {
+  display: flex;
+
+}
+
+.location-active {
+  fill: var(--white);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.location-off {
+  fill: var(--white);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.location-non-allowed {
+  fill: var(--gray);
+  width: 20px;
+  height: 20px;
+  cursor: not-allowed
+}

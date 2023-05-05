@@ -31,8 +31,13 @@ export const NewTweet: React.FC<{ newTweet: Function }> = (props) => {
         pos = await addressApi.getAddressByCoordinates(coordinates.latitude, coordinates.longitude)
 
       // TODO: Use call to send the tweet
-      const localisation = pos ? pos.city : '';
-      const tweet = await TweetFirebase.post(text, localisation);
+      const isLocation: string = localStorage.getItem('isLocation') || 'true';
+      let localization: string = ''
+      if (isLocation === 'true') {
+        localization = pos.city
+      }
+      console.log("localization: ", localization)
+      const tweet = await TweetFirebase.post(text, localization);
 
       if (tweet) {
         props.newTweet(tweet);
