@@ -5,6 +5,8 @@ import './profile.css';
 import { FbTweet } from '../../data/firebase/models/tweet';
 import { TweetFirebase } from '../../data/firebase/tweet';
 import { FbUser } from '../../data/firebase/models/user';
+import { MdLocationOn } from 'react-icons/md';
+import { MdLocationOff } from 'react-icons/md';
 
 export const Profile: React.FC = () => {
 
@@ -16,6 +18,10 @@ export const Profile: React.FC = () => {
 
   const [isTweetTab, setIsTweetTab] = useState<boolean>(true);
 
+  const [isLocation, setIsLocation] = useState<boolean>(true);
+
+  const [isLocationAllowed, setIsLocationAllowed] = useState<boolean>(true);
+
   useEffect(() => {
     const currentUserJson = localStorage.getItem('currentUser');
 
@@ -26,6 +32,7 @@ export const Profile: React.FC = () => {
     }
 
     getTweetList();
+    getGeolocation();
     getLikedTweetList();
   }, []);
 
@@ -53,6 +60,22 @@ export const Profile: React.FC = () => {
     // TODO: Get tweets liked by current user
   }
 
+  const getGeolocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(pos => {
+        setIsLocationAllowed(true);
+        localStorage.getItem('isLocation') === 'true' ? setIsLocation(true) : setIsLocation(false);
+      }, () => {
+        setIsLocationAllowed(false);
+      })
+    }
+  }
+
+  const handleLocationChange = () => {
+    localStorage.setItem('isLocation', String(!isLocation));
+    setIsLocation(!isLocation);
+  }
+
   return (
     <div className='page-wrapper'>
       <TopBar name="Profile" />
@@ -65,11 +88,9 @@ export const Profile: React.FC = () => {
         <div className='profile-displayName'>{ user?.username }</div>
         <div className='profile-username'>@{ user?.email.split('@')[0 ] }</div>
         <div className='profile-description'>{ user?.bio }</div>
-        <div className='profile-stats'>
-          <div className='profile-stats-sub'>
-          </div>
-          <div className='profile-stats-sub'>
-          </div>
+        <div className='profile-location-icon'>
+          Geolocation: 
+          {isLocationAllowed ? (isLocation ? <MdLocationOn className='location-active' onClick={handleLocationChange}/> : <MdLocationOff className='location-off' onClick={handleLocationChange}/>) : <MdLocationOn className='location-non-allowed' />}
         </div>
         </div>
       </div>
