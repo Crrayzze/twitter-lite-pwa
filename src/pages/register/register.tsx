@@ -1,7 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthFirebase } from "../../data/firebase/auth";
+import { Link } from "react-router-dom";
 import "./register.css";
+import { IoLogoTwitter } from 'react-icons/io';
 
 export const Register: React.FC = () => {
   const navigate = useNavigate();
@@ -36,13 +38,20 @@ export const Register: React.FC = () => {
   return (
     <div className="form-container">
       <div className="register-form">
-        <h1 className="form-title">Register</h1>
+        <div className="title-wrapper">
+          <IoLogoTwitter color="var(--white)" size={32} style={{ background: 'transparent', marginTop: '2px' }}/>
+          <h1 className="form-title">Register</h1>
+        </div>
         <form onSubmit={handleregisterFormSubmit}>
           <input className="form-input" name="username" type="text" placeholder="Username" required />
           <input className="form-input" name="email" type="email" placeholder="Email" required />
           <input className="form-input" name="password" type="password" placeholder="Password" required />
           <input className="form-input" name="confirm_password" type="password" placeholder="Confirm password" required />
           <button className="form-button" type="submit">Register</button>
+          <p className="login-text">
+            <span className='login-int'>Already have an account ? </span>
+            <Link to={'/login'}>Login</Link>
+          </p>
         </form>
       </div>
     </div>

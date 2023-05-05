@@ -13,6 +13,11 @@
   flex-direction: column;
 }
 
+.title-wrapper {
+  display: flex;
+  gap: 12px;
+}
+
 .form-title {
   margin-bottom: 1rem;
 }
@@ -49,4 +54,13 @@
   font-size: 18px;
 	font-weight: bold;
   cursor: pointer;
+}
+
+.login-text {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.login-int {
+  font-weight: bold;
 }
