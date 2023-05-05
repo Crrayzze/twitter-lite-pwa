@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './newTweet.css';
 import AddressAPI from "../../data/API/addressApi"
+import { TweetFirebase } from '../../data/firebase/tweet';
 
-export const NewTweet: React.FC = () => {
+export const NewTweet: React.FC<{ newTweet: Function }> = (props) => {
 
   const [text, setText] = useState<string>('');
   const [coordinates, setCoordinates] = useState({latitude: 0, longitude: 0});
@@ -28,16 +29,21 @@ export const NewTweet: React.FC = () => {
       let pos: any = coordinates
       if (coordinates.latitude !== 0 && coordinates.longitude !== 0)
         pos = await addressApi.getAddressByCoordinates(coordinates.latitude, coordinates.longitude)
-      console.log('Tweet: ', text);
-      console.log("coordinates: ", pos.city);
+
       // TODO: Use call to send the tweet
-      setText('')
+      const localisation = pos ? pos.city : '';
+      const tweet = await TweetFirebase.post(text, localisation);
+
+      if (tweet) {
+        props.newTweet(tweet);
+        setText('')
+      }
     }
   }
 
   useEffect(() => {
-    getGeolocation()
-  }, [coordinates]);
+    getGeolocation();
+  }, []);
 
   return (
     <div className='tweet-container'>
